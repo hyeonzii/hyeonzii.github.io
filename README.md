@@ -1,4 +1,4 @@
-# 📝 Hyeonzzi's Blog
+# 📝 Hyeonzii's Blog
 
 ---
 
