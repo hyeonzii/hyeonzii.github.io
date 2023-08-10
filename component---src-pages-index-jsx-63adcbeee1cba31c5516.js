@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmy_portfolio=self.webpackChunkmy_portfolio||[]).push([[230],{610:function(e,t,l){l.r(t);var n=l(7294),u=l(6248);t.default=function(){return n.createElement(n.Fragment,null,n.createElement("title",null,"leehyeonji"),n.createElement(u.default,null))}}}]);
-//# sourceMappingURL=component---src-pages-index-jsx-63adcbeee1cba31c5516.js.map
