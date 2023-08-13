@@ -14,7 +14,7 @@ module.exports = {
             options: {
                 extensions: [`mdx`, `md`],
                 name: `posts`,
-                path: `${__dirname}/src/posts`,
+                path: `${__dirname}/content/posts`,
                 gatsbyRemarkPlugins: [
                     {
                         resolve: `gatsby-remark-images`,
