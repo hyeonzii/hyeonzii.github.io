@@ -16,13 +16,17 @@
         "deploy": "gatsby build && gh-pages -d public -b deploy"
     },
     "dependencies": {
+        "@mdx-js/react": "^2.3.0",
         "aos": "^2.3.4",
         "develop": "^1.0.0",
         "gatsby": "^5.11.0",
+        "gatsby-plugin-mdx": "^5.11.0",
         "gatsby-plugin-postcss": "^6.11.0",
+        "gatsby-source-filesystem": "^5.11.0",
         "gh-pages": "^5.0.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "reading-time": "^1.5.0"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.14",

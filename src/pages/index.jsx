@@ -1,62 +1,69 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'aos/dist/aos.css';
-import GusetPage from './guestPage';
-import AboutPage from './aboutPage';
-import MainPage from './mainPage';
+import { graphql, Link } from 'gatsby';
+import Nav from '../Components/Header/Nav';
+import notebook from '../images/notebook.png';
 
-function IndexPage() {
-    const [curPage, setCurPage] = useState('main');
+function IndexPage({ data }) {
+    let introText = 'bg-gradient-to-r from-h-blue to-h-gray text-transparent bg-clip-text font-extrabold text-3xl';
 
-    const buttons = [
-        { page: 'main', text: 'home' },
-        { page: 'about', text: 'about' },
-        { page: 'guest', text: 'guest' },
-    ];
+    const posts = data.allMdx.edges;
 
     return (
-        <>
-            <div className="w-full h-full flex justify-center bg-slate-500">
-                <div className="w-[65rem] bg-white">
-                    <header className="w-[65rem] pt-4 pl-12 pr-12 bg-white h-content fixed ">
-                        <div className="w-full flex">
-                            <div className="w-fit m-2 h-16 flex justify-center items-center">
-                                <a
-                                    href="https://github.com/hyeonzii"
-                                    className="flex-none text-h-blue text-xl font-bold transition-all duration-300 hover:scale-105 hover:underline underline-offset-1 hover:font-extrabold hover:text-4xl"
-                                >
-                                    hyeonzii
-                                </a>
-                            </div>
-                            <div className="grow"></div>
-                            <div className="flex-none flex">
-                                {buttons.map((button, index) => (
-                                    <button
-                                        key={index}
-                                        className={`cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 ${
-                                            curPage === button.page
-                                                ? 'bg-h-gray text-3xl font-extrabold'
-                                                : 'bg-h-blue font-bold hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105'
-                                        }`}
-                                        onClick={() => {
-                                            setCurPage(button.page);
-                                        }}
-                                    >
-                                        {button.text}
-                                    </button>
-                                ))}
-                            </div>
+        <div className="w-full h-full flex flex-col ">
+            <Nav category="home" />
+            <div className="overflow-y-auto flex flex-col justify-center items-center mt-24">
+                <div className="w-1/2 h-fit p-10">
+                    <div className="flex justify-center items-center">
+                        <img src={notebook} className="w-60"></img>
+                        <div className="ml-20">
+                            <p className={introText}>안녕하세요</p>
+                            <p className={introText}>FRONTEND DEVELOPER</p>
+                            <p className={introText}>이현지 입니다.</p>
                         </div>
-                    </header>
+                    </div>
+                </div>
+                <div className="w-1/2 h-fit mt-8">
+                    <div className=" w-96 border-b-4 border-h-blue"></div>
+                    <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">RECENT</div>
 
-                    <div className="mt-2">
-                        {curPage === 'main' ? <MainPage /> : null}
-                        {curPage === 'about' ? <AboutPage /> : null}
-                        {curPage === 'guest' ? <GusetPage /> : null}
+                    <div className="mt-4">
+                        {posts.map((post) => (
+                            <Link
+                                to={post.node.frontmatter.slug}
+                                key={post.node.id}
+                                className="w-full h-56 p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
+                            >
+                                <div className="font-extrabold mt-2 text-2xl flex-none">
+                                    {post.node.frontmatter.title}
+                                </div>
+                                <div className="text-slate-500 mt-2 flex-grow">{post.node.excerpt}</div>
+                                <div className="text-slate-500 mt-2 flex-none">{post.node.frontmatter.date}</div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
+
+export const query = graphql`
+    query {
+        allMdx(sort: { frontmatter: { date: DESC } }, limit: 2) {
+            edges {
+                node {
+                    id
+                    excerpt(pruneLength: 250)
+                    frontmatter {
+                        title
+                        date(formatString: "MMMM DD, YYYY")
+                        slug
+                    }
+                }
+            }
+        }
+    }
+`;
 
 export default IndexPage;

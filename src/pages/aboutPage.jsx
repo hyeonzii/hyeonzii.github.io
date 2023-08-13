@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import hello from '../images/hello.png';
+import Nav from '../Components/Header/Nav';
 
 function AboutPage() {
     // contact 버튼 호버 관리
@@ -44,58 +45,62 @@ function AboutPage() {
     }, []);
 
     return (
-        <div className="w-full h-screen mt-28 p-10 overflow-y-auto">
-            <div className="w-full h-fit ">
-                <div className="flex justify-center items-center">
-                    <img src={hello} className="w-60"></img>
-                    <div className={infoBox}>
-                        <div className={info}>이현지</div>
-                        <div className={info}>1999.09.10</div>
-                        <div className={info}>KwangWoon Univ</div>
-                        <div className={info}>Computer Engineering</div>
+        <div className="w-full h-full flex flex-col">
+            <Nav category="about" />
+            <div className="overflow-y-auto flex flex-col justify-center items-center mt-24">
+                <div className="w-1/2 p-10 h-fit">
+                    <div className="flex justify-center items-center">
+                        <img src={hello} className="w-60"></img>
+                        <div className={infoBox}>
+                            <div className={info}>이현지</div>
+                            <div className={info}>1999.09.10</div>
+                            <div className={info}>KwangWoon Univ</div>
+                            <div className={info}>Computer Engineering</div>
+                        </div>
                     </div>
                 </div>
-                <div className="mt-28">
+
+                <div className="w-1/2 h-fit mt-8">
                     <div className=" w-96 border-b-4 border-h-blue"></div>
                     <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">CONTACT</div>
-                </div>
 
-                <div className="mt-8 grid grid-row-3 gap-4">
-                    <button
-                        className={contactBtn}
-                        onMouseEnter={() => handleMouseEnter(0)}
-                        onMouseLeave={handleMouseLeave}
-                        onClick={handleBtnClick}
-                    >
-                        {hoveredButton === 0 ? buttons[0].hoverText : buttons[0].text}
-                    </button>
-                    <a
-                        href="https://github.com/hyeonzii"
-                        className={contactBtn}
-                        onMouseEnter={() => handleMouseEnter(1)}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        {hoveredButton === 1 ? buttons[1].hoverText : buttons[1].text}
-                    </a>
-                    <a
-                        href="https://velog.io/@hyeonzii"
-                        className={contactBtn}
-                        onMouseEnter={() => handleMouseEnter(2)}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        {hoveredButton === 2 ? buttons[2].hoverText : buttons[2].text}
-                    </a>
-                </div>
-                <div className="mt-28">
-                    <div className=" w-96 border-b-4 border-h-blue"></div>
-                    <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">STRENGTH</div>
-                </div>
-                <div className="mt-8 flex gap-5">
-                    <div className={contactBtn}>React</div>
-                    <div className={contactBtn}>JS</div>
-                    <div className={contactBtn}>Recoil</div>
-                    <div className={contactBtn}>Android</div>
-                    <div className={contactBtn}>Java</div>
+                    <div className=" mt-4 grid grid-row-3 gap-4">
+                        <button
+                            className={contactBtn}
+                            onMouseEnter={() => handleMouseEnter(0)}
+                            onMouseLeave={handleMouseLeave}
+                            onClick={handleBtnClick}
+                        >
+                            {hoveredButton === 0 ? buttons[0].hoverText : buttons[0].text}
+                        </button>
+                        <a
+                            href="https://github.com/hyeonzii"
+                            className={contactBtn}
+                            onMouseEnter={() => handleMouseEnter(1)}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            {hoveredButton === 1 ? buttons[1].hoverText : buttons[1].text}
+                        </a>
+                        <a
+                            href="https://velog.io/@hyeonzii"
+                            className={contactBtn}
+                            onMouseEnter={() => handleMouseEnter(2)}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            {hoveredButton === 2 ? buttons[2].hoverText : buttons[2].text}
+                        </a>
+                    </div>
+                    <div className="mt-28">
+                        <div className=" w-96 border-b-4 border-h-blue"></div>
+                        <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">STRENGTH</div>
+                    </div>
+                    <div className="mt-4 flex gap-5">
+                        <div className={contactBtn}>React</div>
+                        <div className={contactBtn}>JS</div>
+                        <div className={contactBtn}>Recoil</div>
+                        <div className={contactBtn}>Android</div>
+                        <div className={contactBtn}>Java</div>
+                    </div>
                 </div>
             </div>
         </div>
