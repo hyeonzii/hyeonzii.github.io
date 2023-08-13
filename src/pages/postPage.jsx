@@ -14,7 +14,7 @@ function MainPage({ data }) {
                         <li className="w-full h-60 p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray">
                             <div className="font-extrabold mt-3 text-2xl flex-none">아직</div>
                             <div className="text-slate-500 mt-3 flex-grow">미완성</div>
-                            <div className="text-slate-500 mt-3 flex-none">입니당ㅠ</div>
+                            <div className="text-slate-500 mt-3 flex-none">입니다</div>
                         </li>
                     </div>
                 </div>
