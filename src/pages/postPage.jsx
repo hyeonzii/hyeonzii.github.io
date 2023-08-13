@@ -23,22 +23,4 @@ function MainPage({ data }) {
     );
 }
 
-export const query = graphql`
-    query {
-        allMdx(sort: { frontmatter: { date: DESC } }) {
-            edges {
-                node {
-                    id
-                    excerpt(pruneLength: 250)
-                    frontmatter {
-                        title
-                        date(formatString: "MMMM DD, YYYY")
-                        slug
-                    }
-                }
-            }
-        }
-    }
-`;
-
 export default MainPage;
