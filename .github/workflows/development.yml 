@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versions: [14.x]
+        node-versions: [18.x]
 
     steps:
       - name: Checkout source code.
         uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: npm
+        run: npm install
 
       - name: Build
-        run: npm build:dev
+        run: npm build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
