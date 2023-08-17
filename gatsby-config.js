@@ -35,7 +35,7 @@ module.exports = {
                         options: {
                             maxWidth: 800, // 이미지 최대 너비
                             linkImagesToOriginal: false,
-                            backgroundColor: 'transparent',
+                            backgroundColor: 'transparent', //수정
                         },
                     },
                 ],
