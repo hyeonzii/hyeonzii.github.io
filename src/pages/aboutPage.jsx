@@ -20,7 +20,7 @@ function AboutPage() {
     const infoBox = 'ml-20 mt-2 grid grid-rows-4 gap-4';
 
     //contact 버튼 디자인 && Strength 디자인
-    let contactBtn = `rounded-full h-16 p-2 flex justify-center items-center font-extrabold transition-transform duration-300
+    let contactBtn = `rounded-full h-16 p-2 flex justify-center items-center font-extrabold transition-transform duration-500
     bg-h-gray w-16 transform scale-100 hover:transform hover:scale-105  hover:w-fit hover:bg-h-blue hover:text-white hover`;
 
     //이메일 수신자 설정

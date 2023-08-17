@@ -27,8 +27,8 @@ function Nav(props) {
                             key={index}
                             className={`cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 ${
                                 props.category === button.text
-                                    ? 'bg-h-gray text-3xl font-extrabold'
-                                    : 'bg-h-blue font-bold hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105'
+                                    ? 'bg-h-gray text-3xl font-extrabold '
+                                    : 'bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105'
                             }`}
                         >
                             {button.text}

@@ -34,6 +34,39 @@
     display: none;
 }
 
+/* 마크다운 적용.. */
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+        @apply font-bold;
+        @apply mb-5;
+        @apply mt-5;
+    }
+    h2 {
+        @apply text-2xl;
+        @apply font-bold;
+        @apply mb-5;
+        @apply mt-5;
+    }
+    h3 {
+        @apply text-xl;
+        @apply font-bold;
+        @apply mb-5;
+        @apply mt-5;
+    }
+    hr {
+        @apply mb-10;
+    }
+    p {
+        @apply mt-2;
+        @apply mb-2;
+    }
+    pre {
+    }
+}
+
+/* 애니메이션 */
 @keyframes blink {
     0%,
     100% {

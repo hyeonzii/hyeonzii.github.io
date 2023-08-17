@@ -4,6 +4,9 @@ import { graphql, Link } from 'gatsby';
 import Nav from '../Components/Header/Nav';
 import notebook from '../images/notebook.png';
 
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
+
 function IndexPage({ data }) {
     let introText = 'bg-gradient-to-r from-h-blue to-h-gray text-transparent bg-clip-text font-extrabold text-3xl';
 
@@ -15,7 +18,7 @@ function IndexPage({ data }) {
             <div className="overflow-y-auto flex flex-col justify-center items-center mt-24">
                 <div className="w-1/2 h-fit p-10">
                     <div className="flex justify-center items-center">
-                        <img src={notebook} className="w-60"></img>
+                        <img src={notebook} className="w-60" alt="notebook"></img>
                         <div className="ml-20">
                             <p className={introText}>안녕하세요</p>
                             <p className={introText}>FRONTEND DEVELOPER</p>
