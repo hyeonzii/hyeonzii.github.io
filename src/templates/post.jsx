@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
 import Nav from '../Components/Header/Nav';
+
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 deckDeckGoHighlightElement();
 
@@ -15,7 +16,7 @@ export default function PageTemplate({ data, children }) {
             <div className="overflow-y-auto flex flex-col justify-center items-center mt-28">
                 <div className="w-1/2 h-fit mt-12">
                     <div className="font-extrabold text-4xl text-h-blue mt-4 ">{data.mdx.frontmatter.title}</div>
-                    <div className="border-b-4 border-h-blue mt-4"></div>
+                    <div className="border-b-4 border-h-blue mt-4 mb-8"></div>
                 </div>
                 <div className="w-1/2 h-fit">
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>

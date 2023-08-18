@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versions: [20.x]
+        node-versions: [16.x]
 
     steps:
       - name: Checkout source code.
@@ -35,7 +35,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync ./public s3://${{ secrets.DEV_AWS_S3_BUCKET }} --delete
+        run: aws s3 sync ./public/ s3://${{ secrets.DEV_AWS_S3_BUCKET }} --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{secrets.DEV_AWS_DISTRIBUTION_ID}} --paths "/*"
