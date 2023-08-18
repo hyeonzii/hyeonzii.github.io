@@ -2,19 +2,19 @@ name: development deployment
 
 on:
   push:
-    branches:
-      - main
+    path:
+      - "**"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versions: [16.x]
+        node-versions: [18.x]
 
     steps:
       - name: Checkout source code.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Node.js
         uses: actions/setup-node@v3
