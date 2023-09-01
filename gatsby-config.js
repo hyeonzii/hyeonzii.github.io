@@ -21,6 +21,18 @@ module.exports = {
                             maxWidth: 590,
                         },
                     },
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                    },
+                    {
+                        resolve: `gatsby-remark-autolink-headers`,
+                        options: {
+                            className: `anchor-header`,
+                            maintainCase: false,
+                            removeAccents: true,
+                            elements: [`h2`, `h3`, `h4`],
+                        },
+                    },
                 ],
             },
         },

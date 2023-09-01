@@ -1,9 +1,9 @@
 import React from 'react';
 import 'aos/dist/aos.css';
-import Nav from '../Components/Header/Nav';
+import Nav from '../components/Header/Nav';
 import { graphql, Link } from 'gatsby';
 
-function MainPage({ data }) {
+function postPage({ data }) {
     const posts = data.allMdx.edges;
 
     return (
@@ -16,7 +16,7 @@ function MainPage({ data }) {
                             <Link
                                 to={post.node.frontmatter.slug}
                                 key={post.node.id}
-                                className="w-full h-56 p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
+                                className="w-full h-fit p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
                             >
                                 <div className="font-extrabold mt-2 text-2xl flex-none">
                                     {post.node.frontmatter.title}
@@ -50,4 +50,4 @@ export const query = graphql`
     }
 `;
 
-export default MainPage;
+export default postPage;

@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import hello from '../images/hello.png';
-import Nav from '../Components/Header/Nav';
+import Nav from '../components/Header/Nav';
 
-function AboutPage() {
+function aboutPage() {
     // contact 버튼 호버 관리
     const [hoveredButton, setHoveredButton] = useState(null);
+
+    //aos animation 초기화
+    useEffect(() => {
+        AOS.init();
+    });
 
     // contact 버튼
     const buttons = [
@@ -22,6 +27,10 @@ function AboutPage() {
     //contact 버튼 디자인 && Strength 디자인
     let contactBtn = `rounded-full h-16 p-2 flex justify-center items-center font-extrabold transition-transform duration-500
     bg-h-gray w-16 transform scale-100 hover:transform hover:scale-105  hover:w-fit hover:bg-h-blue hover:text-white hover`;
+
+    //strength 버튼 디자인
+    let strengthBtn = `rounded-full h-16 p-2 flex justify-center items-center font-extrabold transition-transform duration-500
+    bg-h-gray w-16 transform scale-100 hover:transform hover:scale-105 hover:bg-h-blue hover:text-white hover`;
 
     //이메일 수신자 설정
     const recipientEmail = 'hyun09100407@gmail.com';
@@ -52,19 +61,27 @@ function AboutPage() {
                     <div className="flex justify-center items-center">
                         <img src={hello} className="w-60"></img>
                         <div className={infoBox}>
-                            <div className={info}>이현지</div>
-                            <div className={info}>1999.09.10</div>
-                            <div className={info}>KwangWoon Univ</div>
-                            <div className={info}>Computer Engineering</div>
+                            <div data-aos="fade-left" data-aos-duration="1000" className={info}>
+                                이현지
+                            </div>
+                            <div data-aos="fade-left" data-aos-duration="1000" className={info}>
+                                1999.09.10
+                            </div>
+                            <div data-aos="fade-left" data-aos-duration="1000" className={info}>
+                                KwangWoon Univ
+                            </div>
+                            <div data-aos="fade-left" data-aos-duration="1000" className={info}>
+                                Computer Engineering
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="w-1/2 h-fit mt-8">
-                    <div className=" w-96 border-b-4 border-h-blue"></div>
-                    <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">CONTACT</div>
+                    <div className="animate-expand-width w-0 border-b-4 border-h-blue"></div>
+                    <div className="animate-fade-in font-bold text-h-blue text-5xl ml-4 -mt-11 opacity-0">CONTACT</div>
 
-                    <div className=" mt-4 grid grid-row-3 gap-4">
+                    <div className="animate-fade-in mt-4 grid grid-row-3 gap-4 opacity-0">
                         <button
                             className={contactBtn}
                             onMouseEnter={() => handleMouseEnter(0)}
@@ -91,15 +108,17 @@ function AboutPage() {
                         </a>
                     </div>
                     <div className="mt-28">
-                        <div className=" w-96 border-b-4 border-h-blue"></div>
-                        <div className="font-bold text-h-blue text-5xl ml-4 -mt-11 ">STRENGTH</div>
+                        <div className="animate-expand-width w-0 border-b-4 border-h-blue"></div>
+                        <div className="animate-fade-in font-bold text-h-blue text-5xl ml-4 -mt-11 opacity-0">
+                            STRENGTH
+                        </div>
                     </div>
-                    <div className="mt-4 flex gap-5">
-                        <div className={contactBtn}>React</div>
-                        <div className={contactBtn}>JS</div>
-                        <div className={contactBtn}>Recoil</div>
-                        <div className={contactBtn}>Android</div>
-                        <div className={contactBtn}>Java</div>
+                    <div className="animate-fade-in mt-4 flex gap-5 opacity-0">
+                        <div className={strengthBtn}>React</div>
+                        <div className={strengthBtn}>JS</div>
+                        <div className={strengthBtn}>Recoil</div>
+                        <div className={strengthBtn}>Android</div>
+                        <div className={strengthBtn}>Java</div>
                     </div>
                 </div>
             </div>
@@ -107,4 +126,4 @@ function AboutPage() {
     );
 }
 
-export default AboutPage;
+export default aboutPage;
