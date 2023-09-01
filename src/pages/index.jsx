@@ -1,7 +1,7 @@
 import React from 'react';
 import 'aos/dist/aos.css';
 import { graphql, Link } from 'gatsby';
-import Nav from '../Components/Header/Nav';
+import Nav from '../components/Header/Nav';
 import notebook from '../images/notebook.png';
 import TypingAnimation from '../components/typingAnimation';
 

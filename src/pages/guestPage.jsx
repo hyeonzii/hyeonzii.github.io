@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import construction from '../images/construction.png';
-import Nav from '../Components/Header/Nav';
+import Nav from '../components/Header/Nav';
 
-function ContactPage() {
+function gusetPage() {
     useEffect(() => {
         AOS.init({ duration: 1200 }); // 컴포넌트가 마운트될 때 AOS를 초기화합니다.
     }, []);
@@ -22,4 +22,4 @@ function ContactPage() {
     );
 }
 
-export default ContactPage;
+export default gusetPage;
