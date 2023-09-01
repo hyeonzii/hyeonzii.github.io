@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
-import Nav from '../components/Header/Nav';
+import Nav from '../components/Nav';
 
 const shortcodes = { Link }; // Provide common components here
 

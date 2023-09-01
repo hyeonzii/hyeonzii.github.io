@@ -1,15 +1,13 @@
 import React from 'react';
 import 'aos/dist/aos.css';
 import { graphql, Link } from 'gatsby';
-import Nav from '../components/Header/Nav';
+import Nav from '../components/Nav';
 import notebook from '../images/notebook.png';
 import TypingAnimation from '../components/typingAnimation';
 
 function IndexPage({ data }) {
     const posts = data.allMdx.edges;
     const introText = '안녕하세요🖐️\nFRONTEND DEVELOPER 🔨\n이현지 입니다.';
-    const introTextStyle =
-        'bg-gradient-to-r from-h-blue to-h-gray text-transparent bg-clip-text font-extrabold text-3xl';
 
     return (
         <div className="w-full h-full flex flex-col ">

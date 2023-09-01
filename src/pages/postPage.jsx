@@ -1,9 +1,9 @@
 import React from 'react';
 import 'aos/dist/aos.css';
-import Nav from '../components/Header/Nav';
+import Nav from '../components/Nav';
 import { graphql, Link } from 'gatsby';
 
-function postPage({ data }) {
+function PostPage({ data }) {
     const posts = data.allMdx.edges;
 
     return (
@@ -50,4 +50,4 @@ export const query = graphql`
     }
 `;
 
-export default postPage;
+export default PostPage;

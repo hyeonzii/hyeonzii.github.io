@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import hello from '../images/hello.png';
-import Nav from '../components/Header/Nav';
+import Nav from '../components/Nav';
 
-function aboutPage() {
+function AboutPage() {
     // contact 버튼 호버 관리
     const [hoveredButton, setHoveredButton] = useState(null);
 
@@ -59,7 +59,7 @@ function aboutPage() {
             <div className="overflow-y-auto flex flex-col justify-center items-center mt-24">
                 <div className="w-1/2 p-10 h-fit">
                     <div className="flex justify-center items-center">
-                        <img src={hello} className="w-60"></img>
+                        <img src={hello} alt="hello-developer" className="w-60"></img>
                         <div className={infoBox}>
                             <div data-aos="fade-left" data-aos-duration="1000" className={info}>
                                 이현지
@@ -126,4 +126,4 @@ function aboutPage() {
     );
 }
 
-export default aboutPage;
+export default AboutPage;
