@@ -8,3 +8,4 @@
 - gatsby-plugin-image
 - gatsby-plugin-mdx
 - gatsby-remark-prismjs
+- gatsby-remark-autolink-headers
