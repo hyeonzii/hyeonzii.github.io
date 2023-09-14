@@ -3,9 +3,9 @@ import { Link } from "gatsby";
 
 function Nav(props) {
   const buttons = [
-    { page: "/PostPage", text: "posts" },
-    { page: "/AboutPage", text: "about" },
-    { page: "/GuestPage", text: "guest" },
+    { page: "/postPage", text: "posts" },
+    { page: "/aboutPage", text: "about" },
+    { page: "/guestPage", text: "guest" },
   ];
 
   return (
