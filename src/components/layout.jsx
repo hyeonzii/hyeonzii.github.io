@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import { Head } from "../components/Head";
+import { Head } from "./Head";
 
 function Layout({ children, category }) {
   return (
