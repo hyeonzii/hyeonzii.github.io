@@ -5,7 +5,6 @@
 - Javascript
 - tailwind CSS
 ## 플러그인
----
 - gatsby-plugin-image
 - gatsby-plugin-mdx
 - gatsby-remark-prismjs
