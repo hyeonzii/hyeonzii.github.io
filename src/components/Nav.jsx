@@ -9,7 +9,7 @@ function Nav(props) {
   ];
 
   return (
-    <div className="w-full pt-4 pl-12 pr-12 bg-white h-content fixed flex justify-center items-center z-10">
+    <div className="w-full pt-4 bg-white h-content fixed flex justify-center items-center z-10">
       <div className="w-full md:w-4/6 flex">
         <div className="flex-none w-fit m-2 h-16 flex justify-center items-center">
           <Link

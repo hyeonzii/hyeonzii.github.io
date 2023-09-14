@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "aos/dist/aos.css";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
@@ -7,35 +7,42 @@ function PostPage({ data }) {
   const posts = data.allMdx.edges;
   const [showTag, setShowTag] = useState(false);
   const [Tag, setTag] = useState("");
+  let arr = [];
 
-  let arr = ["Gatsby", "React", "Javascript"];
+  posts.forEach((e) => {
+    let t_arr = e.node.frontmatter.category.split(",");
+    t_arr.forEach((e) => {
+      if (!arr.includes(e)) arr.push(e);
+    });
+  });
+
+  //배열에 카테고리 값 다 넣어주기 ->중복제거
+  useEffect(() => {}, []);
 
   return (
     <Layout category="posts">
-      <div className="flex flex-row justify-center items-center">
-        {/* TagBtn */}
-        <div className="w-1/2 h-fit mt-20">
-          <div className="mt-8">
-            {posts.map((post) =>
-              post.node.frontmatter.category.includes(Tag) ? (
-                <Link
-                  to={post.node.frontmatter.slug}
-                  key={post.node.id}
-                  className="w-full h-fit p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
-                >
-                  <div className="font-extrabold mt-2 text-2xl flex-none">
-                    {post.node.frontmatter.title}
-                  </div>
-                  <div className="text-slate-500 mt-2 flex-grow">
-                    {post.node.excerpt}
-                  </div>
-                  <div className="text-slate-500 mt-2 flex-none">
-                    {post.node.frontmatter.date}
-                  </div>
-                </Link>
-              ) : null
-            )}
-          </div>
+      {/* TagBtn */}
+      <div className="w-1/2 h-fit mt-20 flex flex-row justify-center">
+        <div className="">
+          {posts.map((post) =>
+            post.node.frontmatter.category.includes(Tag) ? (
+              <Link
+                to={post.node.frontmatter.slug}
+                key={post.node.id}
+                className="w-full h-fit p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
+              >
+                <div className="font-extrabold mt-2 text-2xl flex-none">
+                  {post.node.frontmatter.title}
+                </div>
+                <div className="text-slate-500 mt-2 flex-grow">
+                  {post.node.excerpt}
+                </div>
+                <div className="text-slate-500 mt-2 flex-none">
+                  {post.node.frontmatter.date}
+                </div>
+              </Link>
+            ) : null
+          )}
         </div>
         <div className="w-14 ml-3">
           <div
@@ -43,7 +50,7 @@ function PostPage({ data }) {
               showTag
                 ? "text-h-blue hover:text-h-gray"
                 : "text-h-gray hover:text-h-blue"
-            }  text-xl ml-4 -mt-8 cursor-pointer`}
+            }  text-xl ml-4 cursor-pointer`}
             onClick={() => {
               setShowTag(!showTag);
               setTag("");
@@ -58,7 +65,7 @@ function PostPage({ data }) {
                 {arr.map((item) => (
                   <li
                     key={item}
-                    className={` w-fit h-fit p-3 font-bold rounded-full cursor-pointer ${
+                    className={` w-fit h-fit text-sm p-3 font-bold rounded-full cursor-pointer ${
                       Tag === item
                         ? "text-white bg-black "
                         : "text-gray-500 bg-h-gray hover:bg-h-blue hover:text-black"
@@ -74,7 +81,6 @@ function PostPage({ data }) {
             </div>
           ) : null}
         </div>
-        {/* Content */}
       </div>
     </Layout>
   );

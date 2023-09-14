@@ -1,21 +1,22 @@
 import React from "react";
 
-function Toc({ toc, currentHeaderUrl }) {
+export default function Toc({ toc, currentHeaderUrl }) {
   console.log(currentHeaderUrl);
 
-  return (
-    <aside className="pl-3 border-h-blue h-fit w-fit md:visible invisible mt-32 sticky top-24">
-      <TocElement toc={toc} currentHeaderUrl={currentHeaderUrl} />
-    </aside>
-  );
+  return <TocElement toc={toc} currentHeaderUrl={currentHeaderUrl} />;
 }
 
 const TocElement = ({ toc, currentHeaderUrl }) => (
-  <ul className=" text-h-gray">
+  <ul>
     {toc.items &&
       toc.items.map((item) => (
         <li key={item.title}>
-          <a href={item.url} className={`hover:text-black`}>
+          <a
+            href={item.url}
+            className={`hover:text-h-blue ${
+              item.url === currentHeaderUrl ? "text-h-blue" : "text-h-gray"
+            }`}
+          >
             {item.title}
           </a>
           {item.items && <TocElement toc={item} />}

@@ -1,0 +1,178 @@
+---
+title: "[백준]dddd"
+slug: /blog-2
+date: 2023-08-12
+category: "algorithm"
+---
+
+## ✏️ 문제풀이
+
+구역을 나눠야 하는 문제입니다.
+
+완전탐색을 이용해서 구현하면 됩니다! 따라서 BFS/DFS 를 사용해주면 됩니다.
+저는 BFS가 더 편해서 그걸로 구현해줬습니다.
+
+단, 이 문제에서는 적록색약인 사람과 아닌 사람의 경우를 고려해야합니다.
+
+그래서 적록색약인 사람의 bfs , 아닌 사람의 bfs를 따로 구현했습니다. (N의 조건이 크지 않기 때문에 가능했던 것 같습니다.)
+
+## ✏️ 결과코드
+
+```js
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./test.txt";
+const input = require("fs")
+  .readFileSync(filePath)
+  .toString()
+  .trim()
+  .split("\n");
+
+let N = Number(input.shift());
+
+let arr = [];
+
+for (let i = 0; i < N; i++) {
+  arr.push(input.shift().split(""));
+}
+
+let cnt = 0;
+let RGcnt = 0;
+let dx = [0, 0, -1, 1];
+let dy = [1, -1, 0, 0];
+let visited = Array.from(Array(N), () => Array(N).fill(false));
+let RGvisited = Array.from(Array(N), () => Array(N).fill(false));
+
+function bfs(a, b) {
+  let queue = [[a, b]];
+  visited[a][b] = true;
+
+  while (queue.length) {
+    let [x, y] = queue.shift();
+
+    for (let d = 0; d < 4; d++) {
+      let nx = x + dx[d];
+      let ny = y + dy[d];
+
+      if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+
+      if (arr[x][y] === arr[nx][ny] && !visited[nx][ny]) {
+        visited[nx][ny] = true;
+        queue.push([nx, ny]);
+      }
+    }
+  }
+}
+
+function RGbfs(a, b) {
+  let queue = [[a, b]];
+  visited[a][b] = true;
+
+  while (queue.length) {
+    let [x, y] = queue.shift();
+
+    for (let d = 0; d < 4; d++) {
+      let nx = x + dx[d];
+      let ny = y + dy[d];
+
+      if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+
+      if (!RGvisited[nx][ny]) {
+        if (
+          (arr[x][y] !== "B" && arr[nx][ny] !== "B") ||
+          (arr[x][y] === "B" && arr[nx][ny] === "B")
+        ) {
+          RGvisited[nx][ny] = true;
+          queue.push([nx, ny]);
+        }
+      }
+    }
+  }
+}
+
+for (let i = 0; i < N; i++) {
+  for (let j = 0; j < N; j++) {
+    if (!visited[i][j]) {
+      bfs(i, j);
+      cnt++;
+    }
+    if (!RGvisited[i][j]) {
+      RGbfs(i, j);
+      RGcnt++;
+    }
+  }
+}
+
+console.log(cnt + " " + RGcnt);
+```
+
+## ✏️ 다른사람의 코드
+
+```js
+#include <stdio.h>
+#include <string.h>
+
+using namespace std;
+
+int n, cnt = 0;
+char photo[100][100];
+bool isVisited[100][100] = { false };
+
+int dx[4] = { 0,0,-1,1 };
+int dy[4] = { -1,1,0,0 };
+
+void dfs(int x, int y) {
+	isVisited[x][y] = true;
+	for (int i = 0; i < 4; i++) {
+		int nx = x + dx[i];
+		int ny = y + dy[i];
+
+		if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+		if (!isVisited[nx][ny] && photo[x][y] == photo[nx][ny]) {
+			dfs(nx, ny);
+		}
+	}
+}
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++) {
+		scanf("%s", photo[i]);
+	}
+
+	//적록색약이 아닌 사람
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (!isVisited[i][j]) {
+				dfs( i, j);
+				cnt++;
+			}
+		}
+	}
+	printf("%d ", cnt);
+
+	//적록색약인 사람
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (photo[i][j] == 'G') photo[i][j] = 'R';
+			else photo[i][j] = photo[i][j];
+		}
+	}
+	memset(isVisited, false, sizeof(isVisited));
+
+	cnt = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (!isVisited[i][j]) {
+				dfs(i, j);
+				cnt++;
+			}
+		}
+	}
+	printf("%d", cnt);
+
+	return 0;
+}
+```
+
+c언어이긴하나 구현방법만 볼 것이라 가져왔습니다.
+DFS를 이용해서 구현했습니다.
+저와 다른 점은 따로 적록색약인 사람의 bfs를 만드는 것이 아니라 아닌 사람의 탐색을 진행한 후 기존 RGB가 쓰여져있는 MAP에서 R과 G를 둘 중 한 언어로 통일해주었습니다. 그러고 나서 기존에 구현해 놓은 bfs를 이용해 탐색을 진행한 코드입니다..!

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import Utterances from "../components/Utterances";
 import ContentLayout from "../components/ContentLayout";
+import Utterances from "../components/Utterances";
 
 function GuestPage() {
   return (
