@@ -16,13 +16,10 @@ function PostPage({ data }) {
     });
   });
 
-  //배열에 카테고리 값 다 넣어주기 ->중복제거
-  useEffect(() => {}, []);
-
   return (
     <Layout category="posts">
       {/* TagBtn */}
-      <div className="w-1/2 h-fit mt-20 flex flex-row justify-center">
+      <div className="w-1/2 h-fit mt-10 flex flex-row justify-center">
         <div className="">
           {posts.map((post) =>
             post.node.frontmatter.category.includes(Tag) ? (
@@ -44,7 +41,7 @@ function PostPage({ data }) {
             ) : null
           )}
         </div>
-        <div className="w-14 ml-3">
+        <div className="w-14 ml-3 sticky top-28 self-start ">
           <div
             className={`font-bold w-fit h-fit ${
               showTag
