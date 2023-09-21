@@ -58,9 +58,9 @@ function PostPage({ data }) {
           {/* TagList */}
           {showTag ? (
             <div className="p-3 h-fit w-fit rounded-2xl border-h-blue border-4">
-              <ul className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3">
                 {arr.map((item) => (
-                  <li
+                  <div
                     key={item}
                     className={` w-fit h-fit text-sm p-3 font-bold rounded-full cursor-pointer ${
                       Tag === item
@@ -72,9 +72,9 @@ function PostPage({ data }) {
                     }}
                   >
                     {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ) : null}
         </div>

@@ -1,16 +1,17 @@
 import React from "react";
 
 export default function Toc({ toc, currentHeaderUrl }) {
-  console.log(currentHeaderUrl);
+  // console.log(currentHeaderUrl);
+  //console.log(toc);
 
   return <TocElement toc={toc} currentHeaderUrl={currentHeaderUrl} />;
 }
 
 const TocElement = ({ toc, currentHeaderUrl }) => (
-  <ul>
+  <div>
     {toc.items &&
       toc.items.map((item) => (
-        <li key={item.title}>
+        <div key={item.title}>
           <a
             href={item.url}
             className={`hover:text-h-blue ${
@@ -20,7 +21,7 @@ const TocElement = ({ toc, currentHeaderUrl }) => (
             {item.title}
           </a>
           {item.items && <TocElement toc={item} />}
-        </li>
+        </div>
       ))}
-  </ul>
+  </div>
 );

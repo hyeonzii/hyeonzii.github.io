@@ -46,17 +46,20 @@ export default function PageTemplate({ data, children }) {
     const headerElements = document.querySelectorAll(".anchor-header"); //dom 에 있는 모든 헤더 값을 가져온다.
 
     console.log(headerElements);
-    console.log("currentOffsetY: " + currentOffsetY.y);
 
     //모든 헤더 값을 확인
     for (const elem of Array.from(headerElements)) {
-      const { top } = elem.getBoundingClientRect(); //가장 상단
-      const elemTop = top + currentOffsetY.y; // 지금 내 스크롤이 방금 전 상단으로 부터 얼마나 이동했나
+      const { top } = elem.getBoundingClientRect(); //현재 화면에서 상단?
+      const elemTop = top + currentOffsetY.y; //그 보려고하는 헤더가 상단에 있나 확인하기 위해서
       const isLast = elem === headerElements[headerElements.length - 1]; //toc에서 가장 마지막
 
-      console.log("top" + top);
-      console.log("elemTop" + elemTop);
-      console.log("isLast" + isLast);
+      /*console.log(decodeURI(elem.getAttribute("href")));
+
+      console.log("y: " + currentOffsetY.y);
+
+      console.log("top: " + top);
+      console.log("elemTop: " + elemTop);
+      console.log("isLast: " + isLast);*/
 
       if (currentOffsetY.y < elemTop - HEADER_OFFSET_Y) {
         // 기억해둔 aboveHeaderUrl이 있다면 바로 위 header와 현재 element 사이에 화면이 스크롤 되어 있다.
