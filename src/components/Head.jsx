@@ -6,8 +6,11 @@ export default function Head() {
   return (
     <Helmet>
       <title>hyeonzii의 블로그</title>
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="hyeonzii's devlog" />
+      <meta property="og:image" content="../imges/hello.png" />
       <meta
-        name="description"
+        property="og:description"
         content="프론트엔드 개발자 이현지의 기술 블로그 입니다!"
       />
       <link rel="shortcut icon" href="favicon.ico" />
