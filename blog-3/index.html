@@ -50,118 +50,78 @@
         }
       }
     })
-  </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="w-full h-full flex flex-col"><div class="w-full pt-4 bg-white h-content fixed flex justify-center items-center z-10"><div class="w-full md:w-4/6 flex"><div class="flex-none w-fit m-2 h-16 flex justify-center items-center"><a class=" text-h-blue text-xl font-bold transition-all duration-300 hover:scale-105 hover:underline underline-offset-1 hover:font-extrabold hover:text-4xl" href="/">hyeonzii</a></div><div class="grow"></div><div class="flex-none flex"><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/postPage/">posts</a><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/aboutPage/">about</a><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/guestPage/">guest</a></div></div></div><div class="w-full h-fit flex flex-col justify-center items-center mt-28"><div class="md:w-4/6 w-full h-fit flex flex-row gap-10 px-10 justify-center"><div class="grow"><div class="font-extrabold items-start text-4xl text-h-blue mb-4">Access denided 에러 (파일 이름이 포함되지 않는 요청 URL에 index.html 추가)</div><div class="border-b-4 border-h-blue mb-4"></div><div class="h-fit -z-10"><h2 id="-access-denied" style="position:relative"><a href="#-access-denied" aria-label=" access denied permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>🚨 access denied,,,?</h2>
-<p>이제 게스트 페이지까지 뚝~딱 만들고 배포를 했습니다.
-Github Action도 잘 돌아간것까지 확인했습니다!!</p>
-<p>그리고 블로그도 쨘~ 하고 잘 떴습니다.
-이제 게스트 페이지가 너무 텅텅~~ 비어있어서 친구한테 나....방명록 좀 남겨줘라고 부탁을 했습니다.</p>
-<p>이거 깃허브 로그인 버튼 누르면 access denied 화면 뜨는디??? 모르겄다잉~</p>
-<p>흐갸갹.. 제가 확인을 해보니 정말로 버튼을 누르면 저 화면이 뜨더랍니다.....</p>
-<p>근데 계속해서 보니</p>
-<p>utterances의 문제가 아니라 걍 게스트페이지로 접근을 못하고 있더랍니다.
-그래서 의심스러운 것이 아!! 지금 CloudFront가 어떤 파일을 보여줘야 할 지 못찾고 있구나!</p>
-<h2 id="-문제가-무엇이냐" style="position:relative"><a href="#-%EB%AC%B8%EC%A0%9C%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90" aria-label=" 문제가 무엇이냐 permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>🧐 문제가 무엇이냐!</h2>
-<p>문제는 바로 index.html 때문이었습니다.</p>
-<p>이게 뭔말..?</p>
-<p>자 저는 정적 파일들을 S3에 올려놓고 이것을 CloudFront로 배포를 진행했습니다. 물론 S3를 통해서도 배포가 가능하지만 빠르고 효율적으로 제공하기 위해서 CloudFront를 사용했습니다.</p>
-<p>따라서 public으로 배포되어져 있는 정적 파일들을 매칭시켜줘야 합니다. 허나 제 CloudFront는 여기서 &quot;index.html&quot; 이라는 파일명을 지정해주지 않아서 &quot;내가 뭘 보여줘야 할 지 모르겄다잉..&quot; 이러고 있는겁니다!</p>
-<h2 id="-문제해결" style="position:relative"><a href="#-%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0" aria-label=" 문제해결 permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>🔨 문제해결!</h2>
-<a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html" class="text-h-blue hover:text-blue-900"><p>공식문서</p></a>
-<p>아주 친절하게 이에 대한 해결법을 공식문서로 제공하고 있었습니다!</p>
-<h2 id="공식문서-따라하기" style="position:relative"><a href="#%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0" aria-label="공식문서 따라하기 permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>공식문서 따라하기</h2>
+  </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="w-full h-full flex flex-col"><div class="w-full pt-4 bg-white h-content fixed flex justify-center items-center z-10"><div class="w-full md:w-4/6 flex"><div class="flex-none w-fit m-2 h-16 flex justify-center items-center"><a class=" text-h-blue text-xl font-bold transition-all duration-300 hover:scale-105 hover:underline underline-offset-1 hover:font-extrabold hover:text-4xl" href="/">hyeonzii</a></div><div class="grow"></div><div class="flex-none flex"><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/postPage/">posts</a><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/aboutPage/">about</a><a class="cursor-pointer rounded-full m-4 w-16 h-16  flex justify-center items-center transition-all duration-300 bg-h-blue font-bold  hover:bg-h-gray hover:text-3xl hover:font-extrabold hover:scale-105" href="/guestPage/">guest</a></div></div></div><div class="w-full h-fit flex flex-col justify-center items-center mt-28"><div class="md:w-4/6 w-full h-fit flex flex-row gap-10 px-10 justify-center"><div class="grow"><div class="font-extrabold items-start text-4xl text-h-blue mb-4">개츠비 블로그 파비콘 수정하기</div><div class="border-b-4 border-h-blue mb-4"></div><div class="h-fit -z-10"><p>여러 사람들의 블로그를 들어가보니 다들 상단 탭에 자신만의 파비콘이 들어가있었습니다!</p>
+<p>그렇다면 저도 냉큼 해야죠</p>
+<h2 id="메타태그" style="position:relative"><a href="#%EB%A9%94%ED%83%80%ED%83%9C%EA%B7%B8" aria-label="메타태그 permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>메타태그</h2>
+<p>메타태그에서는 여러가지를 정의할 수 있습니다.<br/>
+<!-- -->미리보기 이미지 , 사이트 설명 , 사이트 제목 등등등~~~<br/>
+<!-- -->이것들 중에 역쉬나!!! <strong>파비콘</strong> 도 있습니다!</p>
+<p>근데 저희는 지금 개츠비를 사용합니다.<br/>
+<!-- -->그래서 메타태그를 도대체 어디다가 정의하라는건뒤...??;;;;</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; margin:20px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cd0f3f571746afbc0c90798ad0ae9ffb/36dd4/blog-3-1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEC/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgMAAf/aAAwDAQACEAMQAAABj862eV1TcyAoL4m//8QAHBAAAgICAwAAAAAAAAAAAAAAAQIAAxETISIx/9oACAEBAAEFAgxmznMuTqBtdgQz2O4W10Pp/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFREBAQAAAAAAAAAAAAAAAAAAEAH/2gAIAQIBAT8BKf/EABwQAQACAgMBAAAAAAAAAAAAAAEAESFxAhASIv/aAAgBAQAGPwLONzPQpdMfRGmfXJljHc//xAAcEAEAAwACAwAAAAAAAAAAAAABABEhMUFRYXH/2gAIAQEAAT8hGgfqPGQuhga5INBA5EfgbZBjAeyMFFe53tYjxAEpH//aAAwDAQACAAMAAAAQxDj/AP/EABcRAQEBAQAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QOmwn/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQESH/2gAIAQIBAT8Qa0oSP//EABwQAQEBAAIDAQAAAAAAAAAAAAERACExUWFxgf/aAAgBAQABPxBYBeegn3Ww6p9Pv1kUN+4qSlTKWPPq3RkUTBfGK8sCK96hHUHhfmQxwAVHzAYqnf/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="blog-3-1"
+        title=""
+        src="/static/cd0f3f571746afbc0c90798ad0ae9ffb/f93b5/blog-3-1.jpg"
+        srcset="/static/cd0f3f571746afbc0c90798ad0ae9ffb/8ddbc/blog-3-1.jpg 75w,
+/static/cd0f3f571746afbc0c90798ad0ae9ffb/75985/blog-3-1.jpg 150w,
+/static/cd0f3f571746afbc0c90798ad0ae9ffb/f93b5/blog-3-1.jpg 300w,
+/static/cd0f3f571746afbc0c90798ad0ae9ffb/20e5d/blog-3-1.jpg 450w,
+/static/cd0f3f571746afbc0c90798ad0ae9ffb/36dd4/blog-3-1.jpg 512w"
+        sizes="(max-width: 300px) 100vw, 300px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></span>
+<p>침착침착 우리에겐 <strong>react-helmet</strong> 이 있습니다학!!!!</p>
+<h2 id="react-helmet" style="position:relative"><a href="#react-helmet" aria-label="react helmet permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>react-helmet</h2>
+<p><strong>react-helmet</strong> 을 이용하면 컴포넌트내에서 head 태그를 수정할 수 있게 됩니다.</p>
 <ol>
-<li>
-<p>CloudFront에 접속</p>
-</li>
-<li>
-<p>함수 카테고리로 이동</p>
-</li>
+<li>react-helmet 설치</li>
 </ol>
-<span><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; margin:20px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/ee6f294b697b3ed3612501ff7c25da9f/7c1cd/blog-2-1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 148%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAACXBIWXMAABYlAAAWJQFJUiTwAAACyUlEQVR42q1VW08TQRTuqyb4okYTJCZNSihEFBGJkIARKhqNt0QeNJroi2/+BXyAirRKCUX/gTG+eSEmvhETQmK8YCkVti2U3ii0pbR76V5mPzNT26REkNI9yZed2Z359pw53zljamy3of/BY1y/+wjWth6YT3Wj7+Z99Fy7g9buq+i63I/G9otoaOlEZ9cFWE+cxsnWc2g52wlzfVM5LE0wHbWcwaU+G3p7zqO2vhUH6ppx5fZD2G7cg7WtFx22WzjW2IGDdQ2wNDTjSK0Zxy1NqDNbsa/mUBn21xyGacg5gaeOUdgdLgw63bA73Rh0jDM8GXZhwD6KIacbI65XsDvGMDI6gWcv3Bh+Pg6H62UJ9P2QYwwmGGSEEKiqWiBMpzfw/sMkpqa+sOfrN28xPT2Dj5OfsLjIsQ2qqkHTSAl0Ti0SjWMlEgPRdaQzmQKhLMsIBpfAcX745n0IhVYQjcbA+QPsZ9R0/d+e8YIIQZSg6zo2s1mY6EDfbvVfK67ZDiwCTSsnLIKexVbsRFb8rhUJKTudhMNR8LxQVVLKCAPBJWxmc6UQqyQkSKbSyOV4YzxUFAXBQADJZNIYwryqI5SRIalkR4nsmjAtKHg3t4Z4VjaGkJokiRB4HpKUhyCKTPmSQqARfW9Z9voW8GtuHsnUBhY5P+LJDD4vpJDI5gteV+rhVrnQsayRXYdfIsznCyHG4gkmnVh8FaIo7v0MVxNrCEei+P7Tg0BwGdMzX7G6tl6xwMtCphtpL1MUlWmy6koRJQlLyyvgAkHMerwQBLF6D2VFYS0Iu2hn/yWkDZZKJpFYN6Y5MA9lmYnZkFqm1bEcCiPH88Z4SIgOKS+ziqnaw9KdoKosMQXpqOwIaJ+smDAaiyMUjsDj9WFu/nehpj1eJvBU6cbTKw2ZIE+TQggLW5YVdu/uWYe0OhY4PxP3tx+zSFRRen8AZnW6Xlc/AKIAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="blog-2-1"
-        title=""
-        src="/static/ee6f294b697b3ed3612501ff7c25da9f/5a46d/blog-2-1.png"
-        srcset="/static/ee6f294b697b3ed3612501ff7c25da9f/1db73/blog-2-1.png 75w,
-/static/ee6f294b697b3ed3612501ff7c25da9f/8a4e8/blog-2-1.png 150w,
-/static/ee6f294b697b3ed3612501ff7c25da9f/5a46d/blog-2-1.png 300w,
-/static/ee6f294b697b3ed3612501ff7c25da9f/fc2a6/blog-2-1.png 450w,
-/static/ee6f294b697b3ed3612501ff7c25da9f/7c1cd/blog-2-1.png 582w"
-        sizes="(max-width: 300px) 100vw, 300px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-  </a>
-    </span></span>
-<ol start="3">
-<li>공식문서를 참조해 함수 생성 (제목과 설명은 자율)</li>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> react-helmet</code></pre></div></span>
+<ol start="2">
+<li>Helmet 태그를 활용한 컴포넌트 작성</li>
 </ol>
-<span><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; margin:20px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/44adc4c7bd14f8df9eeb1915387fb511/62da8/blog-2-2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 9.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAZ0lEQVR42k3K0QqDMBBEUf//GwtVIe5ikg2aNCBobrH1IQ+HGZgZrvMklIPX+uEdKqNVxljx+YDWaJ37KyIsiyCqOOeYphkRRVXx3jPkUrBtZ01//knbMvfW23MmRCPESDT76bulxBdB+ZgyavW68wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="blog-2-2"
-        title=""
-        src="/static/44adc4c7bd14f8df9eeb1915387fb511/5a46d/blog-2-2.png"
-        srcset="/static/44adc4c7bd14f8df9eeb1915387fb511/1db73/blog-2-2.png 75w,
-/static/44adc4c7bd14f8df9eeb1915387fb511/8a4e8/blog-2-2.png 150w,
-/static/44adc4c7bd14f8df9eeb1915387fb511/5a46d/blog-2-2.png 300w,
-/static/44adc4c7bd14f8df9eeb1915387fb511/fc2a6/blog-2-2.png 450w,
-/static/44adc4c7bd14f8df9eeb1915387fb511/0a47e/blog-2-2.png 600w,
-/static/44adc4c7bd14f8df9eeb1915387fb511/62da8/blog-2-2.png 1262w"
-        sizes="(max-width: 300px) 100vw, 300px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-  </a>
-    </span></span>
-<p>코드는 아래와 같습니다.</p>
-<span><div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> request <span class="token operator">=</span> event<span class="token punctuation">.</span>request<span class="token punctuation">;</span>
-  <span class="token keyword">var</span> uri <span class="token operator">=</span> request<span class="token punctuation">.</span>uri<span class="token punctuation">;</span>
+<span><div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Icon <span class="token keyword">from</span> <span class="token string">"../images/notebook.png"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Helmet <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-helmet"</span><span class="token punctuation">;</span>
 
-  <span class="token comment">// Check whether the URI is missing a file name.</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    request<span class="token punctuation">.</span>uri <span class="token operator">+=</span> <span class="token string">"index.html"</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token comment">// Check whether the URI is missing a file extension.</span>
-  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>uri<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    request<span class="token punctuation">.</span>uri <span class="token operator">+=</span> <span class="token string">"/index.html"</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> request<span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Head</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Helmet</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token plain-text">hyeonzii의 블로그</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span>
+        <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>description<span class="token punctuation">"</span></span>
+        <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>프론트엔드 개발자 이현지의 기술 블로그 입니다!<span class="token punctuation">"</span></span>
+      <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shortcut icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>favicon.ico<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>Icon<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/png<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>favicon.ico<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>16x16<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Helmet</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div></span>
-<p>이제 방명록을 남길 수 있게 되었습니다! 야호~</p></div><div class="items-start mb-4 h-fit text-h-gray mt-4">2023-09-18</div></div><div class="flex-none w-40 self-start sticky top-28 md:visible invisible"><div><div><a href="#-access-denied" class="hover:text-h-blue text-h-gray">🚨 access denied,,,?</a></div><div><a href="#-문제가-무엇이냐" class="hover:text-h-blue text-h-gray">🧐 문제가 무엇이냐!</a></div><div><a href="#-문제해결" class="hover:text-h-blue text-h-gray">🔨 문제해결!</a></div><div><a href="#공식문서-따라하기" class="hover:text-h-blue text-h-gray">공식문서 따라하기</a></div></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog-2/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p>저는 title이랑 description 도 정의해주었습니다.</p>
+<h2 id="결과" style="position:relative"><a href="#%EA%B2%B0%EA%B3%BC" aria-label="결과 permalink" class="anchor-header before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>결과</h2>
+<img src="./images/blog-3/blog-3-2.jpeg" alt="blog-3-1"/>
+<p>짜잔 잘 적용된 것을 확인할 수 있습니다~~!!!</p></div><div class="items-start mb-4 h-fit text-h-gray mt-4">2023-10-05</div></div><div class="flex-none w-40 self-start sticky top-28 md:visible invisible"><div><div><a href="#메타태그" class="hover:text-h-blue text-h-gray">메타태그</a></div><div><a href="#react-helmet" class="hover:text-h-blue text-h-gray">react-helmet</a></div><div><a href="#결과" class="hover:text-h-blue text-h-gray">결과</a></div></div></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog-3/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
