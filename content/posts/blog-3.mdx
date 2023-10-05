@@ -1,0 +1,64 @@
+---
+title: "개츠비 블로그 파비콘 수정하기"
+slug: /blog-3
+date: 2023-10-05
+category: "Gatsby,React,Javascript"
+---
+
+여러 사람들의 블로그를 들어가보니 다들 상단 탭에 자신만의 파비콘이 들어가있었습니다!
+
+그렇다면 저도 냉큼 해야죠
+
+## 메타태그
+
+메타태그에서는 여러가지를 정의할 수 있습니다.  
+미리보기 이미지 , 사이트 설명 , 사이트 제목 등등등~~~  
+이것들 중에 역쉬나!!! **파비콘** 도 있습니다!
+
+근데 저희는 지금 개츠비를 사용합니다.  
+그래서 메타태그를 도대체 어디다가 정의하라는건뒤...??;;;;
+
+![blog-3-1](./images/blog-3/blog-3-1.jpeg)
+
+침착침착 우리에겐 **react-helmet** 이 있습니다학!!!!
+
+## react-helmet
+
+**react-helmet** 을 이용하면 컴포넌트내에서 head 태그를 수정할 수 있게 됩니다.
+
+1. react-helmet 설치
+
+```bash
+npm install react-helmet
+```
+
+2. Helmet 태그를 활용한 컴포넌트 작성
+
+```jsx
+import React from "react";
+import Icon from "../images/notebook.png";
+import { Helmet } from "react-helmet";
+
+export default function Head() {
+  return (
+    <Helmet>
+      <title>hyeonzii의 블로그</title>
+      <meta
+        name="description"
+        content="프론트엔드 개발자 이현지의 기술 블로그 입니다!"
+      />
+      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="icon" href={Icon} />
+      <link rel="icon" type="image/png" href="favicon.ico" sizes="16x16" />
+    </Helmet>
+  );
+}
+```
+
+저는 title이랑 description 도 정의해주었습니다.
+
+## 결과
+
+![blog-3-1](./images/blog-3/blog-3-2.jpeg)
+
+짜잔 잘 적용된 것을 확인할 수 있습니다~~!!!

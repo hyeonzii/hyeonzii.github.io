@@ -16,6 +16,8 @@ function PostPage({ data }) {
     });
   });
 
+  const Categories = () => {};
+
   return (
     <Layout category="posts">
       {/* TagBtn */}
@@ -26,15 +28,15 @@ function PostPage({ data }) {
               <Link
                 to={post.node.frontmatter.slug}
                 key={post.node.id}
-                className="w-full h-fit p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray"
+                className="w-full h-fit p-4 flex flex-col rounded-lg cursor-pointer hover:bg-post-hover-gray gap-2"
               >
-                <div className="font-extrabold mt-2 text-2xl flex-none">
+                <div className="font-extrabold text-2xl flex-none">
                   {post.node.frontmatter.title}
                 </div>
-                <div className="text-slate-500 mt-2 flex-grow">
+                <div className="text-slate-500 flex-grow">
                   {post.node.excerpt}
                 </div>
-                <div className="text-slate-500 mt-2 flex-none">
+                <div className="text-slate-500 flex-none flex flex-row gap-2">
                   {post.node.frontmatter.date}
                 </div>
               </Link>

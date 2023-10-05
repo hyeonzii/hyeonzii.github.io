@@ -62,8 +62,8 @@
 
   /* 마크다운 이미지 CSS 수정 */
   .gatsby-resp-image-wrapper {
-    @apply mt-3;
-    @apply mb-3;
+    @apply mt-12;
+    @apply mb-12;
   }
 
   ul {

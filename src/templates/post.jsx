@@ -94,7 +94,7 @@ export default function PageTemplate({ data, children }) {
           <div className="font-extrabold items-start text-4xl text-h-blue mb-4">
             {data.mdx.frontmatter.title}
           </div>
-          <div className="border-b-4 border-h-blue"></div>
+          <div className="border-b-4 border-h-blue mb-4"></div>
           <div className="h-fit -z-10">
             <MDXProvider components={shortcodes}>{children}</MDXProvider>
           </div>
