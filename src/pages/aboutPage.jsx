@@ -111,7 +111,7 @@ function AboutPage() {
             {hoveredButton === 2 ? buttons[2].hoverText : buttons[2].text}
           </a>
           <a
-            href="https://www.notion.so/FRONTEND-DEVELOPER-2d7e27b3c47742708b9cd2a809ec4dd1"
+            href="https://pleasant-hide-d95.notion.site/FRONTEND-DEVELOPER-1bee11a179ca4fe1bb2832c254317bab?pvs=4"
             className={contactBtn}
             onMouseEnter={() => handleMouseEnter(3)}
             onMouseLeave={handleMouseLeave}
