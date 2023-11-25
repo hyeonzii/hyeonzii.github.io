@@ -53,7 +53,7 @@
     @apply my-5;
   }
   hr {
-    @apply mb-10;
+    @apply my-10;
   }
   p {
     @apply mt-2;
@@ -68,14 +68,17 @@
 
   ul {
     @apply ml-2;
-    @apply my-5;
+    @apply my-4;
     @apply list-disc;
   }
 
   ol {
     @apply ml-2;
-    @apply my-5;
+    @apply my-4;
     @apply list-decimal;
+  }
+
+  body {
   }
 }
 

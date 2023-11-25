@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        gothic: ['"nanum-gothic"'],
+      },
       colors: {
         "h-blue": "#0596ff",
         "h-gray": "#d9d9d9",
