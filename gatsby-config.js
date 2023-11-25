@@ -3,13 +3,16 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `my-portfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `hyeonzii's blog`,
+    author: "Hyeonji Lee",
+    description: "This blog is powered by gatsby",
+    siteUrl: `https://hyeonzii.github.io/`,
   },
   plugins: [
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
