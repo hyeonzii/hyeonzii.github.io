@@ -5,7 +5,6 @@ import Head from "./Head";
 function Layout({ children, category }) {
   return (
     <div className="w-full h-full flex flex-col">
-      <Head />
       <Nav category={category} />
       <div className="w-full h-fit flex flex-col justify-center items-center mt-28">
         {children}
